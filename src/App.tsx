@@ -36,10 +36,10 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="bg-[#222831] w-full h-screen pt-10">
       <section
         id="goal-form"
-        className="w-[30rem] my-12 mx-auto p-8 shadow-lg border-10 max-w-[90%]"
+        className="w-[30rem] mx-auto p-8 shadow-lg border-10 max-w-[90%] bg-[#393E46] rounded-lg"
       >
         <CourseInput onAddGoal={addGoalHandler} />
       </section>

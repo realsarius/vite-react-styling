@@ -17,7 +17,7 @@ const CourseInput = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control my-2">
-        <label className="font-bold block my-2 antialiased text-lg">
+        <label className="font-bold block my-2 antialiased text-lg text-white">
           Course Goal
         </label>
         <input
