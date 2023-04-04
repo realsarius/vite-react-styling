@@ -5,11 +5,76 @@ Getting Started
 
 To get started with this project, you can clone the repository and install the dependencies:
 
+## Code Example
+
+<p style="text-align: center;">Tailwind with CSS module</p>
+
+```tsx
+import styles from './Button.module.scss';
+
+const Button = (props) => {
+  return (
+    <button
+      type={props.type}
+      className={`button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg w-full sm:w-auto hover:border-dark-purple-bg hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2 ${styles.button}`}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+<p style="text-align: center;">Tailwind styled component with CSS module</p>
+
+```tsx
+import { useState } from 'react';
+import tw from 'tailwind-styled-components';
+import styles from './CourseInput.module.scss';
+import Button from '../../UI/Button/Button';
+
+const Input = tw.input`
+${(props) => (props.invalid ? 'border-red-400 bg-[#ffbaba]' : '')}
+
+block antialiased text-black font-sans w-full text-inherit line leading-6 px-1 py-1 rounded-md border-solid border-2 transition-colors duration-300 focus:outline-none focus:bg-input-color focus:border-input-border-color
+`;
+
+const Label = tw.label`
+${(props) => (props.invalid ? 'text-red-500' : 'text-white')}
+
+font-bold block my-2 antialiased text-lg transition-colors duration-300
+`;
+
+const CourseInput = (props) => {
+
+    return (
+        <form onSubmit={formSubmitHandler}>
+        <div
+            invalid={(!isValid).toString()}
+            className={`${styles['form-control']} ${!isValid && styles.invalid}`}>
+            <Label invalid={!isValid}>Course Goal</Label>
+            <Input
+            type="text"
+            onChange={goalInputChangeHandler}
+            invalid={!isValid}
+            />
+        </div>
+        <Button type="submit">Add Goal</Button>
+        </form>
+    );
+
+};
+
+export default CourseInput;
+```
+
 ![ss](vite-styling-1.png)
 
 ```bash
-git clone <https://github.com/[username>]/[project-name].git
-cd [project-name]
+git clone <https://github.com/realsarius/vite-react-styling.git
+cd vite-react-styling
 npm install
 ```
 
