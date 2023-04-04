@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
-import './CourseInput.scss';
 import tw from 'tailwind-styled-components';
+import styles from './CourseInput.module.scss';
 import Button from '../../UI/Button/Button';
 
 const FormControl = tw.div`
@@ -43,17 +43,34 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormControl invalid={(!isValid).toString()}>
+      <div
+        invalid={(!isValid).toString()}
+        className={`${styles['form-control']} ${!isValid && styles.invalid}`}
+      >
         <Label invalid={!isValid}>Course Goal</Label>
         <Input
           type="text"
           onChange={goalInputChangeHandler}
           invalid={!isValid}
         />
-      </FormControl>
+      </div>
       <Button type="submit">Add Goal</Button>
     </form>
   );
+
+  // return (
+  //   <form onSubmit={formSubmitHandler}>
+  //     <FormControl invalid={(!isValid).toString()}>
+  //       <Label invalid={!isValid}>Course Goal</Label>
+  //       <Input
+  //         type="text"
+  //         onChange={goalInputChangeHandler}
+  //         invalid={!isValid}
+  //       />
+  //     </FormControl>
+  //     <Button type="submit">Add Goal</Button>
+  //   </form>
+  // );
 };
 
 export default CourseInput;

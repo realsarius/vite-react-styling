@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import tw from 'tailwind-styled-components';
-import './Button.scss';
+// import tw from 'tailwind-styled-components';
+import styles from './Button.module.scss';
 
-const Button = tw.button`
-button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg hover:border-dark-purple-bg w-full sm:w-auto hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2
-`;
+// const Button = tw.button`
+// button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg hover:border-dark-purple-bg w-full sm:w-auto hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2
+// `;
 
 // const Button = styled.button`
 //   font: inherit;
@@ -31,16 +31,18 @@ button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-w
 // }
 // `;
 
-// const Button = (props) => {
-//   return (
-//     <button
-//       type={props.type}
-//       className="button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg hover:border-dark-purple-bg hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2"
-//       onClick={props.onClick}
-//     >
-//       {props.children}
-//     </button>
-//   );
-// };
+// className="button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg w-full sm:w-auto hover:border-dark-purple-bg hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2"
+
+const Button = (props) => {
+  return (
+    <button
+      type={props.type}
+      className={`button text-lg font-sans antialiased font-medium px-6 py-2 cursor-pointer text-white bg-dark-purple rounded-xl transition-all duration-200 shadow-md focus:outline-none hover:bg-dark-purple-bg w-full sm:w-auto hover:border-dark-purple-bg hover:shadow-lg active:bg-dark-purple-bg-focus active:border-dark-purple-bg-focus active:shadow-lg mt-2 ${styles.button}`}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
+};
 
 export default Button;
