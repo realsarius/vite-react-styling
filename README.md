@@ -73,7 +73,7 @@ export default CourseInput;
 ![ss](vite-styling-1.png)
 
 ```bash
-git clone <https://github.com/realsarius/vite-react-styling.git
+git clone https://github.com/realsarius/vite-react-styling.git
 cd vite-react-styling
 npm install
 ```
