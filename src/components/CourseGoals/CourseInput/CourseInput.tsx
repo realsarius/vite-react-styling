@@ -1,6 +1,24 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
-import Button from '../../UI/Button/Button';
 import './CourseInput.scss';
+import tw from 'tailwind-styled-components';
+import Button from '../../UI/Button/Button';
+
+const FormControl = tw.div`
+  my-2 mx-0
+`;
+
+const Input = tw.input`
+${(props) => (props.invalid ? 'border-red-400 bg-[#ffbaba]' : '')}
+
+block antialiased text-black font-sans w-full text-inherit line leading-6 px-1 py-1 rounded-md border-solid border-2 transition-colors duration-300 focus:outline-none focus:bg-input-color focus:border-input-border-color
+`;
+
+const Label = tw.label`
+${(props) => (props.invalid ? 'text-red-500' : 'text-white')}
+
+font-bold block my-2 antialiased text-lg transition-colors duration-300
+`;
 
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -25,22 +43,14 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control my-2 ${!isValid ? 'invalid' : ''}`}>
-        <label
-          className={`font-bold block my-2 antialiased text-lg transition-colors duration-300 ${
-            !isValid ? 'text-red-500' : 'text-white'
-          }`}
-        >
-          Course Goal
-        </label>
-        <input
+      <FormControl invalid={(!isValid).toString()}>
+        <Label invalid={!isValid}>Course Goal</Label>
+        <Input
           type="text"
           onChange={goalInputChangeHandler}
-          className={`block antialiased font-sans w-full text-inherit line leading-6 px-1 py-1 rounded-md border-solid border-2 transition-colors duration-300 focus:outline-none focus:bg-input-color focus:border-input-border-color ${
-            !isValid ? 'border-red-400 bg-[#ffbaba]' : ''
-          }`}
+          invalid={!isValid}
         />
-      </div>
+      </FormControl>
       <Button type="submit">Add Goal</Button>
     </form>
   );
