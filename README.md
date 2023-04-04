@@ -5,7 +5,7 @@ Getting Started
 
 To get started with this project, you can clone the repository and install the dependencies:
 
-bash
+![ss](vite-styling-1.png)
 
 ```bash
 git clone <https://github.com/[username>]/[project-name].git
